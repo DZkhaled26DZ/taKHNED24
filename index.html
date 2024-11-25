@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محلل العملات الرقمية | Crypto Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <header>
+        <div class="clock-container">
+            <div id="algeriaClock" class="clock"></div>
+        </div>
+        <h1>محلل العملات الرقمية</h1>
+        <div class="controls">
+            <select id="timeframe" class="select-style">
+                <option value="1m">1 دقيقة</option>
+                <option value="3m">3 دقائق</option>
+                <option value="5m">5 دقائق</option>
+                <option value="15m">15 دقيقة</option>
+                <option value="30m">30 دقيقة</option>
+                <option value="1h" selected>1 ساعة</option>
+                <option value="2h">2 ساعة</option>
+                <option value="4h">4 ساعات</option>
+                <option value="6h">6 ساعات</option>
+                <option value="8h">8 ساعات</option>
+                <option value="12h">12 ساعة</option>
+                <option value="1d">يوم</option>
+                <option value="3d">3 أيام</option>
+                <option value="1w">أسبوع</option>
+                <option value="1M">شهر</option>
+            </select>
+            <button id="toggleAnalysis" class="btn primary">بدء التحليل</button>
+            <button id="refreshData" class="btn secondary">تحديث يدوي</button>
+            <button id="resetSettings" class="btn warning">إعادة الضبط</button>
+        </div>
+        <div class="sound-controls">
+            <label class="switch">
+                <input type="checkbox" id="soundToggle" checked>
+                <span class="slider"></span>
+            </label>
+            <span>التنبيهات الصوتية</span>
+            <input type="range" id="volumeControl" min="0" max="100" value="50">
+        </div>
+    </header>
+
+    <main>
+        <div class="sorting-controls">
+            <span>ترتيب حسب:</span>
+            <button class="sort-btn" data-sort="time">الوقت</button>
+            <button class="sort-btn" data-sort="tail">طول الذيل</button>
+            <button class="sort-btn" data-sort="price">السعر</button>
+        </div>
+
+        <div class="results-container">
+            <div id="results" class="results-grid"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024 خالد دراغة</p>
+        <p>للتواصل: <a href="mailto:gsmkhaledtiaret@gmail.com">gsmkhaledtiaret@gmail.com</a></p>
+    </footer>
+
+    <audio id="alertSound" src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAEAAABVgANTU1NTU1Q0NDQ0NDUFBQUFBQXl5eXl5ea2tra2tra3l5eXl5eYaGhoaGhpSUlJSUlKGhoaGhoaGvr6+vr6+8vLy8vLzKysrKysrX19fX19fX5eXl5eXl8vLy8vLy////////AAAAAExhdmM1OC4xMwAAAAAAAAAAAAAAACQCgAAAAAAAAAVY82AhbwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/+MYxAALACwAAP/AADwQKVE9YWDGPkQWpT66yk4+zIiYPoTUaT3tnU+NFR/REREPuICH6qiIh4iIMAQOPAgBAEAQBAMQEREREREAAAAREREREREREREREQEAQBAEAwAABB+QEAAQAABAAAAQ/+MYxA8L0DU0AP+0ANkABPkAD5AAEAAABAAAEAQAABAAAAAgIBAAAI/4Pn5A/IEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGkE/+MYxBYLwDU0AP/0ACkABFM8mZqwCIoxGt2GypAAkwMN4KAAmGMArMGsApBFTz++OQgAAHAQEg+UPyAIAgAAAgwQPh8IAAAAAAAfD4AAAAAAAAB8Pgh+QBAAQBAAAAB8EAAAQAABAAAAAAAA/+MYxCALsDU0AP/0AABLLPWUrtoVAgw5am4VRE8V4UABJwzgoyFR8BX6oC3ViYo0ypveOQPQAEAQBAEHyAIAgCAIAggAD4fBAEAQAAEAQAAEAAAAAAAAAAAABAAAEAAAAEAAAAAAAAAAAAAAAAVcAAD/4xjEJwvYNTQA//QAAAAAA0mzXUkAQBoF0jzs4QDQANlA+EPgAgAAAAAAPh8EAQBAEAQQEAQBAEHwQBAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/+MYxDULsDU0AP/0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMw=="></audio>
+    <script src="script.js"></script>
+</body>
+</html>

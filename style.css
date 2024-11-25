@@ -1,0 +1,369 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #4f46e5;
+    --background-dark: #0f172a;
+    --card-dark: #1e293b;
+    --text-light: #e2e8f0;
+    --text-gray: #94a3b8;
+    --success-color: #22c55e;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Add styles for the clock */
+.clock-container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.clock {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-weight: bold;
+    color: var(--primary-color);
+    background: var(--background-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Rest of the CSS remains exactly the same as before */
+html {
+    font-size: 16px;
+    height: -webkit-fill-available;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Header Styles */
+header {
+    padding: clamp(1rem, 4vw, 2rem);
+    background-color: var(--card-dark);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Controls Section */
+.controls {
+    display: flex;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.select-style {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--card-dark);
+    color: var(--text-light);
+    border: 1px solid var(--text-gray);
+    cursor: pointer;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    min-width: 120px;
+    max-width: 200px;
+    width: 100%;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    min-width: 120px;
+    touch-action: manipulation;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn.warning {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(110%);
+}
+
+@media (hover: none) {
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* Sound Controls */
+.sound-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--text-gray);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--success-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Main Content */
+main {
+    padding: clamp(1rem, 4vw, 2rem);
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Sorting Controls */
+.sorting-controls {
+    margin-bottom: clamp(1rem, 4vw, 2rem);
+    display: flex;
+    gap: clamp(0.5rem, 2vw, 1rem);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+}
+
+.sort-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: var(--card-dark);
+    color: var(--text-light);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    touch-action: manipulation;
+}
+
+.sort-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.sort-btn.active {
+    background-color: var(--primary-color);
+}
+
+/* Results Container */
+.results-container {
+    background-color: var(--card-dark);
+    border-radius: 1rem;
+    padding: clamp(1rem, 4vw, 2rem);
+    width: 100%;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+    width: 100%;
+}
+
+.crypto-card {
+    background-color: var(--background-dark);
+    border-radius: 1rem;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.crypto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+@media (hover: none) {
+    .crypto-card:hover {
+        transform: none;
+    }
+}
+
+.crypto-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+}
+
+.crypto-info {
+    display: grid;
+    gap: 0.5rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.crypto-info span {
+    color: var(--text-gray);
+}
+
+.crypto-info strong {
+    color: var(--text-light);
+    word-break: break-word;
+    font-family: 'Courier New', monospace;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: clamp(1rem, 4vw, 2rem);
+    background-color: var(--card-dark);
+    margin-top: 2rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .sound-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn, .select-style {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .controls, .sound-controls, .sorting-controls {
+        display: none;
+    }
+    
+    .crypto-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000ff;
+        --secondary-color: #6200ee;
+        --background-dark: #000000;
+        --card-dark: #1a1a1a;
+        --text-light: #ffffff;
+        --text-gray: #cccccc;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Safari Mobile Viewport Fix */
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
+}
